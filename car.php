@@ -2,11 +2,21 @@
 
 require_once("vehicle.php");
 
-final class car extends vehicle
+class Car extends Vehicle implements LightableInterface
 
 {
     public function __construct(string $color, int $nbSeats, string $energy)
     {
-        parent::__construct( $color, $nbSeats, $energy);
+        parent::__construct($color, $nbSeats, $energy);
+    }
+
+    public function switchOn(): bool
+    {
+        return true;
+    }
+
+    public function switchOff(): bool
+    {
+        return false;
     }
 }
