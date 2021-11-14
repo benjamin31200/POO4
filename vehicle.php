@@ -22,6 +22,13 @@ abstract class vehicle
         $this->setEnergy($energy);
     }
 
+    public function setCurrentSpeed(int $currentSpeed): void
+    {
+        if ($currentSpeed >= 0) {
+            $this->currentSpeed = $currentSpeed;
+        }
+    }
+
     public function forward(): string
     {
         $this->currentSpeed = 15;
@@ -30,6 +37,7 @@ abstract class vehicle
 
     public function brake(): string
     {
+        $this->currentSpeed = 15;
         $sentence = "";
         while ($this->currentSpeed > 0) {
             $this->currentSpeed--;
@@ -51,6 +59,7 @@ abstract class vehicle
 
     public function setParkBrake(): string
     {
+        $this->currentSpeed = 15;
         $this->hasParkBrake = false;
         if ($this->hasParkBrake == false) {
             return $this->brake();
@@ -60,13 +69,6 @@ abstract class vehicle
     public function getCurrentSpeed(): int
     {
         return $this->currentSpeed;
-    }
-
-    public function setCurrentSpeed(int $currentSpeed): void
-    {
-        if ($currentSpeed >= 0) {
-            $this->currentSpeed = $currentSpeed;
-        }
     }
 
     public function getColor(): string
@@ -99,7 +101,8 @@ abstract class vehicle
         $this->nbWheels = $nbWheels;
     }
 
-    public function getEnergy():string {
+    public function getEnergy(): string
+    {
         return $this->energy;
     }
 
@@ -108,7 +111,8 @@ abstract class vehicle
         $this->energy = $energy;
     }
 
-    public function getEnergyLevel():int {
+    public function getEnergyLevel(): int
+    {
         return $this->energyLevel;
     }
 }
