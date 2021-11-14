@@ -11,7 +11,7 @@ class Speedometer
         }
 
         public static function convertMilestoKm($miles) {
-            return $km = $miles / self::conversionKM; 
+            return $km = $miles * self::conversionKM; 
         }
 
 };
